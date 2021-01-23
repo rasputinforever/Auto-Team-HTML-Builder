@@ -39,3 +39,28 @@
         // check for duplicate: if a duplicate exists, PROMPT to Overwrite OR not
             // do not overwrite: give it a number (_1, _2) by counting number of files with the same name in the rendered folder
     
+
+// require inquirer
+// require TEAM
+// require MEMBER
+
+
+// inquirer.prompt(get team name)
+// .then(
+    // newTeam = new TEAM.createNew(team-name)
+    // memberLooper();
+// )
+// 
+
+
+// function memberLooper() {
+    // prompt(team member name, arrRole.select)
+    // .then (
+        // if (member) {
+        //     newMember = new MEMBER.create(response.name, response.role))
+        //        newTeam.push(newMember)
+        // } else {
+        //     createHTML();
+        // }
+// }
+
