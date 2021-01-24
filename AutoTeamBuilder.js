@@ -64,3 +64,18 @@
         // }
 // }
 
+// imports class constructors
+const Member = require('./lib/member.js')
+const Team = require('./lib/team.js')
+
+
+// build test classes
+const newMember = new Member('Erik', 'erik@erik.com')
+const newTeam = new Team('Cool Team', 'team@team.com')
+
+// test prototype
+
+newTeam.addMember(newMember);
+
+console.log('member class test: ', newMember);
+console.log('team class test: ', newTeam);
