@@ -76,8 +76,19 @@ function initTeamBuilder() {
 };
 
 function newMemberInit(team) {
-    const newMember = new Member('Erik', 'erik@erik.com');
-    newMember.getTitle(newMember, team);
+    inquirer.prompt([{
+        name: 'name',
+        type: 'input',
+        message: 'What is this team member\'s name?'
+    },{
+        name: 'email',
+        type: 'input',
+        message: 'What is this team member\'s email??'
+    }]).then((response) => {
+        const newMember = new Member(response.name, response.email);
+        newMember.getTitle(newMember, team);
+    })
+    
 }
 
 //this is looped within 'getTitle'
