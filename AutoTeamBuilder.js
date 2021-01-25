@@ -71,15 +71,20 @@ const Member = require('./lib/member.js')
 const Team = require('./lib/team.js')
 
 function initTeamBuilder() {        
-    const newMember = new Member('Erik', 'erik@erik.com');
     const newTeam = new Team('Cool Team', 'team@team.com');
-
-    newMember.getTitle(newMember, newTeam);
+    newMemberInit(newTeam);
 };
 
+function newMemberInit(team) {
+    const newMember = new Member('Erik', 'erik@erik.com');
+    newMember.getTitle(newMember, team);
+}
 
+//this is looped within 'getTitle'
+module.exports = newMemberInit;
 
 initTeamBuilder();
+
 // build test classes
 
 
