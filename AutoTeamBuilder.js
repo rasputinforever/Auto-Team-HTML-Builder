@@ -64,18 +64,22 @@
         // }
 // }
 
+const inquirer = require('inquirer')
+
 // imports class constructors
 const Member = require('./lib/member.js')
 const Team = require('./lib/team.js')
 
+function initTeamBuilder() {        
+    const newMember = new Member('Erik', 'erik@erik.com');
+    const newTeam = new Team('Cool Team', 'team@team.com');
 
+    newMember.getTitle(newMember, newTeam);
+};
+
+initTeamBuilder();
 // build test classes
-const newMember = new Member('Erik', 'erik@erik.com')
-const newTeam = new Team('Cool Team', 'team@team.com')
 
-// test prototype
 
-newTeam.addMember(newMember);
 
-console.log('member class test: ', newMember);
-console.log('team class test: ', newTeam);
+
