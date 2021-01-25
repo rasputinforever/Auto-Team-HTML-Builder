@@ -38,43 +38,32 @@
     // html shoudl be saved as "team-name.html" in a folder called "rendered pages"
         // check for duplicate: if a duplicate exists, PROMPT to Overwrite OR not
             // do not overwrite: give it a number (_1, _2) by counting number of files with the same name in the rendered folder
-    
 
-// require inquirer
-// require TEAM
-// require MEMBER
-
-
-// inquirer.prompt(get team name)
-// .then(
-    // newTeam = new TEAM.createNew(team-name)
-    // memberLooper();
-// )
-// 
-
-
-// function memberLooper() {
-    // prompt(team member name, arrRole.select)
-    // .then (
-        // if (member) {
-        //     newMember = new MEMBER.create(response.name, response.role))
-        //        newTeam.push(newMember)
-        // } else {
-        //     createHTML();
-        // }
-// }
-
+// nps
 const inquirer = require('inquirer')
 
 // imports class constructors
 const Member = require('./lib/member.js')
 const Team = require('./lib/team.js')
 
-function initTeamBuilder() {        
-    const newTeam = new Team('Cool Team', 'team@team.com');
-    newMemberInit(newTeam);
+// program starts here
+function initTeamBuilder() {    
+    // ask for team info, then create the team, then move to adding members (always going to make at least one member): 
+    inquirer.prompt([{
+        name: 'name',
+        type: 'input',
+        message: 'What is this team\'s name?'
+    },{
+        name: 'email',
+        type: 'input',
+        message: 'What is this team\'s email??'
+    }]).then((response) => {    
+        const newTeam = new Team(response.name, response.email);
+        newMemberInit(newTeam);
+    })
 };
 
+// looped function. The "end" of this functionality asks if the user wants to continue or not
 function newMemberInit(team) {
     inquirer.prompt([{
         name: 'name',
@@ -87,17 +76,11 @@ function newMemberInit(team) {
     }]).then((response) => {
         const newMember = new Member(response.name, response.email);
         newMember.getTitle(newMember, team);
-    })
-    
+    })    
 }
 
 //this is looped within 'getTitle'
 module.exports = newMemberInit;
 
+// tells script to GO
 initTeamBuilder();
-
-// build test classes
-
-
-
-
