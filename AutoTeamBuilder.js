@@ -41,11 +41,11 @@ function newMemberInit(team) {
     inquirer.prompt([{
         name: 'name',
         type: 'input',
-        message: 'What is this team member\'s name?'
+        message: 'What is this team member\'s name? First and Last:'
     },{
         name: 'email',
         type: 'input',
-        message: 'What is this team member\'s email??'
+        message: 'What is this team member\'s email?'
     }]).then((response) => {
         const newMember = new Member(response.name, response.email);
         newMember.getTitle(newMember, team);
