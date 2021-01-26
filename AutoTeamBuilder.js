@@ -49,6 +49,7 @@ const Team = require('./lib/team.js')
 // program starts here
 function initTeamBuilder() {    
     // ask for team info, then create the team, then move to adding members (always going to make at least one member): 
+    console.log('Creating the Team...')
     inquirer.prompt([{
         name: 'name',
         type: 'input',
@@ -56,9 +57,14 @@ function initTeamBuilder() {
     },{
         name: 'email',
         type: 'input',
-        message: 'What is this team\'s email??'
+        message: 'What is this team\'s email?'
+    },{
+        name: 'git',
+        type: 'input',
+        message: 'What is this team\'s git page?'
     }]).then((response) => {    
         const newTeam = new Team(response.name, response.email);
+        console.log('Your First Team Member...')
         newMemberInit(newTeam);
     })
 };
