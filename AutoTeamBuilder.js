@@ -10,17 +10,19 @@
 const inquirer = require('inquirer')
 
 // imports class constructors
-const Member = require('./lib/member.js')
 const Team = require('./lib/team.js')
+
+// imports module functions
+const newMemberInit = require('./lib/member.js');
 
 // program starts here
 function initTeamBuilder() {    
     // ask for team info, then create the team, then move to adding members (always going to make at least one member): 
-    console.log('Creating the Team...')
+    console.log('Initiating Auto Team HTML Generator...')
     inquirer.prompt([{
         name: 'name',
         type: 'input',
-        message: 'What is this team\'s name?'
+        message: 'Step 1: Let\'s first build our team: What is this team\'s name?'
     },{
         name: 'email',
         type: 'input',
@@ -29,31 +31,30 @@ function initTeamBuilder() {
         name: 'git',
         type: 'input',
         message: 'What is this team\'s git page?'
+    },{
+        name: 'manager',
+        type: 'input',
+        message: 'Step 2: Let\'s start building our team. Who is this team\'s manager?'
     }]).then((response) => {    
+
+        // create team        
         const newTeam = new Team(response.name, response.email);
-        console.log('Your First Team Member...')
-        newMemberInit(newTeam);
+        // create manager
+        const empName = response.manager;
+        const empTitle = 'Manager';
+        newMemberInit(empName, empTitle, newTeam)
+            // goto member generator
+            // push manager into team
+            // ask if wanting to add more members
+                // yes, goto newMember()
+                // no, goto htmlBuilder()
+            // new member
+                // ask for title
+                // loop back to member generator
+        
+
     })
 };
-
-// looped function. The "end" of this functionality asks if the user wants to continue or not
-function newMemberInit(team) {
-    inquirer.prompt([{
-        name: 'name',
-        type: 'input',
-        message: 'What is this team member\'s name? First and Last:'
-    },{
-        name: 'email',
-        type: 'input',
-        message: 'What is this team member\'s email?'
-    }]).then((response) => {
-        const newMember = new Member(response.name, response.email);
-        newMember.getTitle(newMember, team);
-    })    
-}
-
-//this is looped within 'getTitle'
-module.exports = newMemberInit;
 
 // tells script to GO
 initTeamBuilder();
