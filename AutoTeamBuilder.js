@@ -38,7 +38,7 @@ function initTeamBuilder() {
     }]).then((response) => {    
 
         // create team        
-        const newTeam = new Team(response.name, response.email);
+        const newTeam = new Team(response.name, response.email, response.git);
         // create manager
         const empName = response.manager;
         const empTitle = 'Manager';
