@@ -1,10 +1,5 @@
 //MVP To-Dos
-    // validations in inquirer: do NOT allow blank entries for any entry, all must be filled!
-    // validations in inquirer: all EMAIL and LINK inputs MUST be with a "@" symbol, git pages have the word "git" and "." in the input string
-
-    // getTitle and getProperty... is it possible to put these within the constructors themselves? So far the constructor does not wait for inquiry inputs, rendering it useless. Will ge advice on this and try again.
-
-    //JEST tests! Kind of relates to the above, but can't JEST also test normal functions? If I can test anything... then maybe it's moot to jam the inquirer prompts into the constructors, I should just test each thing, each member and member element validations work, team works, and can we test the HTML? Check that it.. outputs HTML at all!
+ // jest tests
 
 // nps
 const inquirer = require('inquirer')
