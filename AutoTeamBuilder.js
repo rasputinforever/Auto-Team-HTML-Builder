@@ -13,7 +13,7 @@ const inquirer = require('inquirer')
 const Team = require('./lib/team.js')
 
 // imports module functions
-const newMemberInit = require('./lib/member.js');
+const newManager = require('./lib/member.js');
 
 // program starts here
 function initTeamBuilder() {    
@@ -31,27 +31,19 @@ function initTeamBuilder() {
         name: 'git',
         type: 'input',
         message: 'What is this team\'s git page?'
-    },{
-        name: 'manager',
-        type: 'input',
-        message: 'Step 2: Let\'s start building our team. Who is this team\'s manager?'
     }]).then((response) => {    
-
         // create team        
         const newTeam = new Team(response.name, response.email, response.git);
-        // create manager
-        const empName = response.manager;
-        const empTitle = 'Manager';
-        newMemberInit(empName, empTitle, newTeam)
-            // goto member generator
-            // push manager into team
-            // ask if wanting to add more members
-                // yes, goto newMember()
-                // no, goto htmlBuilder()
-            // new member
-                // ask for title
-                // loop back to member generator
-        
+
+        //check for returned errors... convert object to JSON makes it easier to check
+        if (JSON.stringify(newTeam) === `{}`) {
+            // fail on manager requires a special exception
+            console.log("Error creating team... please be sure to fill all entries correctly and try again...")
+            initTeamBuilder();
+        } else {
+            // goto Manager Creator
+            newManager(newTeam)  
+        }    
 
     })
 };
