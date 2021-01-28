@@ -1,6 +1,6 @@
 const Manager = require("../lib/manager");
 
-describe("Team", () => {
+describe("Manager", () => {
   test('If name input for Manager is null, sends back an empty object', () => {
     const testManager = new Manager("", "Manager", "erik.portillo@test.com", "Office Number", "TEST001");
 
@@ -39,7 +39,7 @@ describe("Team", () => {
     expect(result).toEqual(testManager);
   });
 
-  test('If all inputs fort Team are entered correctly, return a Team object with an empty array for Members', () => {
+  test('If all inputs for Manager are entered correctly, return a Manager object with an HTML String', () => {
     const testManager = new Manager("Erik Portillo", "Manager", "erik.portillo@test.com", "Office Number", "TEST001");
     
 
