@@ -1,5 +1,9 @@
 //MVP To-Dos
- // jest tests
+ // Output HTML CSS considerations and improvements
+    // all cards: turn black
+    // nav-bar: improve how the text looks and is aligned.
+
+// Jest Testing: everything passed!
 
 // nps
 const inquirer = require('inquirer')
