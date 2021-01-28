@@ -27,7 +27,7 @@ An HTML file, named by the input Team Name, will be saved in the "Output" folder
 
 ## How it Works
 ### Function Pathway
-
+ 
 The tool prompts for all info for each CLASS before actually sending the info to the constructor.
 
 ![Functions Pathway](assetts/images/pathway.PNG)
