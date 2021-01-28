@@ -47,13 +47,13 @@ describe("Intern", () => {
       contact: "erik.portillo@test.com",
       memberHTML: `
         <section>
-            <div class="card text-white bg-light mb-3" style="width: 18rem;">
+            <div class="card text-white bg-warning mb-3" style="width: 18rem;">
                 <div class="card-body">
                 <h3 class="card-title">Erik Portillo</h3>          
                     <ul class="list-group">
-                        <li class="list-group-item list-group-item-light">Title: Intern</li>
-                        <li class="list-group-item list-group-item-light">Email: erik.portillo@test.com</li>
-                        <li class="list-group-item list-group-item-light">School Name: University of Test</li>
+                        <li class="list-group-item list-group-item-warning">Title: Intern</li>
+                        <li class="list-group-item list-group-item-warning">Email: erik.portillo@test.com</li>
+                        <li class="list-group-item list-group-item-warning">School Name: University of Test</li>
                     </ul>
                 </div>
             </div>
